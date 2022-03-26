@@ -19,7 +19,7 @@ from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_handler
 import os
 
-class HelloWorldSkill(MycroftSkill):
+class musicplayerskill(MycroftSkill):
     def __init__(self):
         """ The __init__ method is called when the Skill is first constructed.
         It is often used to declare variables or perform setup actions, however
@@ -68,10 +68,14 @@ class HelloWorldSkill(MycroftSkill):
         except:
             self.speak_dialog('Something went wrong.')
 
+    @intent_handler('stopplaying.intent')
+    def handle_stop_playing_intent(self, message):
+        os.system('killall -v mpg123')
+        self.speak_dialog('I have stopped the music')
 
     def stop(self):
         pass
 
 
 def create_skill():
-    return HelloWorldSkill()
+    return musicplayerskill()
