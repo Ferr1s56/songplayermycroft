@@ -59,8 +59,8 @@ class HelloWorldSkill(MycroftSkill):
     def handle_play_music_intent(self, message):
         songtitle = message.data.get('song')
         musiclist = {
-            'blinding lights': 'mpg123 blindinglights.mp3',
-            'mister': 'mpg123 mr.mp3'
+            'blinding lights': 'mpg123 /home/pi/mycroft-core/skills/songplayermycroft/blindinglights.mp3',
+            'mister': 'mpg123 /home/pi/mycroft-core/skills/songplayermycroft/mr.mp3'
         }
         songname = musiclist[songtitle]
         try:
