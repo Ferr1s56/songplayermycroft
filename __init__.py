@@ -58,7 +58,6 @@ class HelloWorldSkill(MycroftSkill):
     @intent_handler('playmusic.intent')
     def handle_play_music_intent(self, message):
         songtitle = message.data.get('song')
-        songtitle = input()
         musiclist = {
             'blinding lights': 'mpg123 blindinglights.mp3',
             'mister': 'mpg123 mr.mp3'
