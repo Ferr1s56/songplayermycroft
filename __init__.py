@@ -17,6 +17,7 @@
 
 from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_handler
+import os
 
 class HelloWorldSkill(MycroftSkill):
     def __init__(self):
@@ -53,6 +54,21 @@ class HelloWorldSkill(MycroftSkill):
         self.log.info("There are five types of log messages: "
                       "info, debug, warning, error, and exception.")
         self.speak_dialog("hello.world")
+
+    @intent_handler('playmusic.intent')
+    def handle_play_music_intent(self, message):
+        songtitle = message.data.get('song')
+        songtitle = input()
+        musiclist = {
+            'blinding lights': 'mpg123 blindinglights.mp3',
+            'mister': 'mpg123 mr.mp3'
+        }
+        songname = musiclist[songtitle]
+        try:
+            os.system(songname)
+        except:
+            self.speak_dialog('Something went wrong.')
+
 
     def stop(self):
         pass
