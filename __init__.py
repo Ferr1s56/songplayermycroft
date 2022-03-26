@@ -60,7 +60,8 @@ class musicplayerskill(MycroftSkill):
         songtitle = message.data.get('song')
         musiclist = {
             'blinding lights': 'mpg123 /home/pi/mycroft-core/skills/songplayermycroft/blindinglights.mp3',
-            'mister': 'mpg123 /home/pi/mycroft-core/skills/songplayermycroft/mr.mp3'
+            'mister': 'mpg123 /home/pi/mycroft-core/skills/songplayermycroft/mr.mp3',
+            'nocturne': 'mpg123 /home/pi/mycroft-core/skills/songplayermycroft/nocturne.mp3'
         }
         songname = musiclist[songtitle]
         try:
